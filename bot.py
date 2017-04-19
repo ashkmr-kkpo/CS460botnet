@@ -8,4 +8,4 @@ port = 12345                # Reserve a port for your service.
 
 s.connect((host, port))
 print s.recv(1024)
-s.close                     # Close the socket when done test
+s.close                     # Close the socket when done testb
