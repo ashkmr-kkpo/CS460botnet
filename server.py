@@ -59,11 +59,6 @@ while True:
 			print 'Got connection from bot 2', addr
 			#c.setblocking(0)
 			c.sendall(' '.join(['Thank you for connecting bot 2', sys.argv[2], sys.argv[3]]))
-			print 'wefregreger'
-			c.recv(1024)				# Bot acknowledges !!!THIS WONT RETURN!
-			print 'efegerger'
-			#c.recv(1024)				# Bot acknowledges
-			#c.recv(1024)				# Bot acknowledges
 			conn_bot_2 = 1
 			c.close()                	# Close the connection
 	except:

