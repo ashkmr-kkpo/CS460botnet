@@ -1,3 +1,4 @@
+#get system information
 def info(self):
 	return '%s: %s, %s, %s, %s' % (
 	        __file__,

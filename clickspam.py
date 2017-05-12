@@ -3,7 +3,7 @@ import time
 
 
 import uinput
-
+# automate keyboard inputs
 def keyclick():
 	device = uinput.Device([
 	        uinput.KEY_E,
@@ -17,6 +17,7 @@ def keyclick():
 	device.emit_click(uinput.KEY_L)
 	device.emit_click(uinput.KEY_L)
 	device.emit_click(uinput.KEY_O)
+# automate mouse movements
 
 def mousemove():
 	device = uinput.Device([
@@ -29,6 +30,7 @@ def mousemove():
 	for i in range(20):
 	    device.emit(uinput.REL_X, 5)
 	    device.emit(uinput.REL_Y, 5)
+# automate keyboard combos
 
 def keyboardcombos():
 	device = uinput.Device([
