@@ -2,7 +2,7 @@
 import sys
 import urllib
 import socket               # Import socket module
-from clickspam import keyclick
+#from clickspam import keyclick
 
 def attack(host="",port=80):
     try:
